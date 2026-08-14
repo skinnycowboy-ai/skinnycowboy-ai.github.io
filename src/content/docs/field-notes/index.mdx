@@ -1,0 +1,23 @@
+---
+title: Field notes
+description: "Long-form, product-specific working notes for architecture, demonstrations, and technical review."
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+# Product-specific working notes
+
+These drafts name the relevant Red Hat products, state the architecture question,
+and document what Project Vaquero can and cannot demonstrate.
+
+<CardGrid>
+  <LinkCard title="OpenShift Virtualization storage decisions" href="/field-notes/openshift-virtualization-storage-decisions/" description="Compare storage alternatives against VM workload evidence, migration mechanics, and operating ownership." />
+  <LinkCard title="Disconnected OpenShift content flow" href="/field-notes/disconnected-openshift-content-flow/" description="Plan how platform, application, automation, package, and model content crosses a controlled boundary." />
+  <LinkCard title="Project Lightwell capability map" href="/field-notes/project-lightwell-closed-loop/" description="Map a closed-loop remediation buying motion to relevant Red Hat platform capabilities." />
+</CardGrid>
+
+:::caution[Working drafts]
+Product claims must be checked against current official Red Hat documentation
+before public publication or reuse. These drafts contain no customer, account,
+contact, or opportunity data.
+:::

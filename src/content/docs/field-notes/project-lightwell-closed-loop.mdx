@@ -1,0 +1,111 @@
+---
+title: "Project Lightwell: mapping a closed-loop remediation motion to Red Hat platforms"
+description: "A working capability map for AI-assisted, human-approved vulnerability remediation using relevant Red Hat platforms."
+---
+
+# Project Lightwell capability map
+
+:::caution[Name and scope]
+Project Lightwell is a **field-developed buying motion** and demonstration
+concept. It is **not a Red Hat product**. Every product mapping in this draft is
+illustrative and requires validation against the customer architecture, current
+product documentation, subscriptions, and support boundaries.
+:::
+
+**Products discussed:** Red Hat OpenShift, Red Hat OpenShift AI, Red Hat Ansible
+Automation Platform, Red Hat Advanced Cluster Security for Kubernetes, and
+Git-based application-delivery workflows.
+
+## The remediation bottleneck
+
+Security teams can discover vulnerabilities faster than application and
+operations teams can safely correct them. A finding is only the beginning of a
+production change that may require dependency analysis, compatibility testing,
+regression testing, application-owner approval, controlled deployment, rollback,
+verification, and retained evidence.
+
+Project Lightwell frames that problem as a closed-loop engineering workflow
+rather than a promise of autonomous patching.
+
+## Target workflow
+
+1. **Discover** — receive a confirmed finding with affected workload context.
+2. **Prioritize** — combine severity with exploitability, exposure, service
+   criticality, and available compensating controls.
+3. **Propose** — generate the smallest supportable correction and supporting
+   analysis.
+4. **Test** — exercise dependency, build, security, and application behavior in a
+   controlled environment.
+5. **Approve** — require the designated human or policy boundary before production
+   promotion.
+6. **Deploy** — apply the approved change through a repeatable delivery path.
+7. **Verify** — confirm the finding is removed and the application remains healthy.
+8. **Preserve evidence** — retain the original finding, proposal, tests, approval,
+   change, verification, and rollback status.
+
+## Possible Red Hat capability map
+
+| Workflow responsibility | Relevant capability to evaluate |
+| --- | --- |
+| Container and Kubernetes security context | Red Hat Advanced Cluster Security for Kubernetes |
+| Governed AI-assisted analysis | Red Hat OpenShift AI |
+| Application test and deployment environments | Red Hat OpenShift |
+| Cross-system orchestration and evidence collection | Red Hat Ansible Automation Platform |
+| Proposed changes and promotion history | Git-based application and platform workflows |
+
+This table is not a fixed reference architecture. A customer may have existing
+security, testing, source-control, IT service-management, or deployment systems
+that remain part of the workflow.
+
+## AI is assistance, not production permission
+
+An AI model can accelerate research, correlate context, summarize evidence, or
+propose a correction. It should not quietly become authorization to change
+production.
+
+The architecture must make the following controls visible:
+
+- Model, prompt, retrieval, and dependency provenance
+- Confidence and uncertainty handling
+- Compatibility and regression-test results
+- Human approval and separation of duties
+- Production credentials and execution boundary
+- Rollback ownership and verification
+
+A useful outcome is a controlled reduction in the effort and elapsed time between
+a confirmed finding and a verified correction.
+
+## Evidence contract
+
+Each demonstration run should retain:
+
+- Original finding and affected application context
+- Proposed correction and supporting analysis
+- Model and retrieval inputs used for AI assistance
+- Build, compatibility, security, and regression-test results
+- Approving person or system boundary and recorded decision
+- Deployed change, verified outcome, and rollback status
+- Exceptions, failed steps, and unresolved uncertainty
+
+If required evidence cannot be collected, the run is incomplete. Missing evidence
+must not be converted into a green result.
+
+## What Project Vaquero can demonstrate
+
+Project Vaquero can implement a controlled example application, vulnerability
+finding, AI-assisted proposal, automated test and remediation workflow, human
+approval boundary, deployment, verification, and evidence bundle.
+
+It cannot prove production application compatibility, enterprise tool
+integration, organizational approval design, scale, or customer security
+authorization.
+
+## Buying-motion outcome
+
+The desired customer conversation is not "buy autonomous patching." It is:
+
+> How can we reduce remediation time while preserving application safety, human
+> accountability, repeatability, and evidence?
+
+Related SLED context: [Security & compliance](/sled/security-compliance/) and
+[Application platforms](/sled/application-platforms/).

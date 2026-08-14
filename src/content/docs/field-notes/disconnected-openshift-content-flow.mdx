@@ -1,0 +1,103 @@
+---
+title: "Disconnected OpenShift starts with content flow, not the install command"
+description: "Plan how release images, Operators, automation content, packages, model artifacts, and evidence cross a controlled boundary."
+---
+
+# Disconnected OpenShift starts with content flow
+
+:::caution[Working field note]
+This draft is for technical and editorial review. Supported configurations and
+product behavior must be verified against current official Red Hat documentation
+before publication or customer reuse.
+:::
+
+**Products discussed:** Red Hat OpenShift Container Platform, Red Hat Quay, Red
+Hat Ansible Automation Platform, private automation hub, Red Hat Satellite, and
+Red Hat OpenShift AI.
+
+## The installation is only the first transfer
+
+A disconnected OpenShift design must account for the continuing movement of
+trusted content. Release images, Operator catalogs, application images,
+automation collections, operating-system packages, model artifacts, and security
+metadata all have different owners and update rhythms.
+
+If the content path is improvised during installation, the cluster may start
+successfully while the operating model remains incomplete.
+
+## Inventory every content class
+
+| Content class | Example repository or control point |
+| --- | --- |
+| OpenShift releases | Approved mirror registry |
+| Operator catalogs | Curated catalog images and internal registry |
+| Application images | Red Hat Quay or another approved enterprise registry |
+| Automation content | Private automation hub and approved execution environments |
+| RHEL packages | Red Hat Satellite or an approved package-management path |
+| AI models | Controlled model registry or artifact repository |
+| Security metadata | Approved scanning, advisory, and exception process |
+
+The actual products and repositories depend on the customer architecture. The
+design responsibility is to show how each content class is acquired, validated,
+promoted, used, updated, and retired.
+
+## Draw the trust zones before the network diagram
+
+For every boundary, document:
+
+1. Upstream source and expected provenance
+2. Team authorized to retrieve the artifact
+3. Scanning, signature, approval, and exception checks
+4. Transfer mechanism into the restricted zone
+5. Internal repository of record
+6. Promotion path toward each environment
+7. Rejection, quarantine, rollback, and evidence-retention behavior
+
+The network diagram should implement this trust model. It should not be the first
+place the trust model appears.
+
+## Separate platform, application, and automation content
+
+These content classes can share infrastructure while retaining different
+approval and update policies.
+
+- OpenShift releases and Operator catalogs affect cluster lifecycle.
+- Application images move on application release timelines.
+- Automation collections and execution environments affect operational control.
+- Operating-system packages may be governed by a separate patch process.
+- AI model artifacts may introduce provenance, license, evaluation, and data-use
+  requirements that do not apply to ordinary container images.
+
+Treating all artifacts as "images" hides ownership and approval differences.
+
+## Design day-two operations before installation
+
+The operating model must answer:
+
+- How much capacity does each mirror require?
+- How are registry, repository, and transfer certificates renewed?
+- How are stale releases, catalogs, images, and models retired safely?
+- What is the normal update cadence and emergency exception path?
+- How are failed or partial transfers detected and recovered?
+- How is vulnerability information brought into the restricted zone?
+- Which evidence proves that the promoted artifact matches the approved artifact?
+
+If the architecture cannot answer these questions, the disconnected platform is
+not operationally complete.
+
+## What Project Vaquero can demonstrate
+
+Project Vaquero can exercise a small controlled mirror workflow, validate
+artifact identity, automate repeatable promotion, and retain transfer evidence.
+
+It cannot establish customer-specific boundary controls, registry capacity,
+security authorization, lifecycle staffing, or production supportability.
+
+## Next writing tasks
+
+- Create a disconnected-content inventory template
+- Map an OpenShift release and Operator catalog promotion flow
+- Add private automation hub and package content paths
+- Extend the model for AI artifacts, evaluations, and dependencies
+
+Related SLED context: [Disconnected environments](/sled/disconnected-environments/).

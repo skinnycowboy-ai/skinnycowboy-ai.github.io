@@ -1,0 +1,116 @@
+---
+title: "Storage alternatives for OpenShift Virtualization: questions before the first migration"
+description: "A product-specific framework for comparing storage options against VM workload requirements, migration mechanics, and operational ownership."
+---
+
+# Storage alternatives for OpenShift Virtualization
+
+:::caution[Working field note]
+This draft is for technical and editorial review. Supported configurations and
+product behavior must be verified against current official Red Hat documentation
+before publication or customer reuse.
+:::
+
+**Products discussed:** Red Hat OpenShift Virtualization, Red Hat OpenShift
+Container Platform, Migration Toolkit for Virtualization, and Red Hat OpenShift
+Data Foundation.
+
+## Do not begin with a storage brand
+
+The useful first question is not which array or software-defined storage product
+is preferred. It is what the virtual machine estate requires from latency,
+throughput, access mode, snapshots, backup, failure domains, encryption, and
+operational support.
+
+Red Hat OpenShift Virtualization runs virtual machines alongside containerized
+workloads on OpenShift. That makes storage a platform decision: it affects
+migration design, day-two operations, application behavior, and who owns
+recovery when something goes wrong.
+
+## Establish the workload evidence
+
+Build the comparison from facts collected for the source virtual machines.
+
+| Evidence | Questions |
+| --- | --- |
+| Capacity | Allocated, consumed, growth rate, thin provisioning, and snapshot overhead |
+| Performance | Latency sensitivity, IOPS, throughput, burst behavior, and working-set pattern |
+| Access | Required volume mode, access mode, topology, and attachment behavior |
+| Availability | Failure domains, fencing, multipath, replication, and application-level recovery |
+| Data protection | Snapshot, backup, restore, retention, immutability, and recovery objectives |
+| Operations | Monitoring, expansion, upgrades, ownership, escalation, and support boundary |
+
+If the source data is unavailable, record the requirement as unknown and create a
+measurement plan. Do not replace missing workload evidence with a generic sizing
+assumption.
+
+## Compare architecture categories
+
+OpenShift Virtualization storage designs can include integrated Red Hat storage
+services, supported external storage through certified CSI drivers, or a
+combination selected for different workload classes.
+
+Red Hat OpenShift Data Foundation can provide integrated data services for an
+OpenShift environment. Existing enterprise storage may also fit through a
+supported CSI implementation. The relevant comparison is not "integrated versus
+external" in isolation. It includes:
+
+- Existing investment and operational skills
+- Failure-domain alignment with the OpenShift topology
+- Supported access modes and VM workload behavior
+- Backup, restore, and disaster-recovery integration
+- Upgrade and support ownership across the storage and platform teams
+- Capacity and performance evidence under representative load
+
+The output should be a decision record and validation plan, not a universal
+storage ranking.
+
+## Include the migration mechanics
+
+Storage choice affects the time and risk required to move each VM. A migration
+test with Migration Toolkit for Virtualization should record:
+
+1. Source and target architecture
+2. Disk size, consumed data, and change rate
+3. Transfer method and observed throughput
+4. Planned and observed cutover window
+5. Network and storage bottlenecks
+6. Guest behavior after migration
+7. Rollback decision point and recovery procedure
+
+A successful transfer alone is not acceptance. Validate the application,
+networking, storage behavior, backup registration, monitoring, and operating
+handoff on the target platform.
+
+## Assign day-two ownership
+
+Document who owns each layer before the first production migration:
+
+- OpenShift cluster lifecycle
+- OpenShift Virtualization configuration
+- CSI driver and storage integration
+- Storage platform capacity and availability
+- VM backup and restore workflow
+- Guest operating system and application recovery
+- Incident coordination across the boundaries
+
+Shared ownership without an explicit escalation path becomes unowned recovery.
+
+## What Project Vaquero can demonstrate
+
+Project Vaquero can show VM creation, storage-class behavior, migration mechanics,
+snapshot and restore workflows, automation, and observable failure tests at small
+scale.
+
+It cannot prove production performance, capacity, availability, supportability,
+or disaster-recovery outcomes for a customer environment. Those claims require a
+customer-specific architecture and validation plan.
+
+## Next writing tasks
+
+- Create a reusable VM workload inventory worksheet
+- Define a storage decision-record template
+- Build a Project Vaquero VM migration evidence contract
+- Document backup, restore, and rollback acceptance tests
+
+Related SLED context: [Modernization](/sled/modernization/).

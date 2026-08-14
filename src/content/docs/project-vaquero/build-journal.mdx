@@ -1,0 +1,46 @@
+---
+title: Project Vaquero build journal
+description: "Accepted decisions, installation changes, failed assumptions, validation results, and the next experiment."
+---
+
+# Project Vaquero build journal
+
+A lab becomes useful when another person can understand how it reached its
+current state. The build journal records decisions and evidence, not just
+successful commands.
+
+## Entry format
+
+Every journal entry uses the same shape:
+
+| Field | Required content |
+| --- | --- |
+| Goal | Capability or architecture question being tested |
+| Preconditions | Required installed, configured, and accepted state |
+| Change | Exact architecture or configuration adjustment |
+| Evidence | Logs, commands, screenshots, measurements, or observed behavior |
+| Result | Passed, failed, partial, blocked, or unknown |
+| Limits | What the evidence does not prove |
+| Next step | Keep, revise, remove, escalate, or test again |
+
+## Current writing queue
+
+Initial journal entries will cover:
+
+- Physical topology, power, rack, and network preparation
+- Puget workstation RHEL and virtualization work-up
+- OpenShift installation and rebuild path
+- Registry and disconnected-content mirroring
+- Storage decisions and acceptance evidence
+- Automation bootstrap and validation
+- First OpenShift Virtualization workload
+- First OpenShift AI inference workload
+
+## Failure handling
+
+Failed evidence collection is not a passing result. If a required observation
+cannot be collected, the journal records the outcome as **unknown** or
+**blocked** and explains why.
+
+Manual corrections made during a test must be captured before the result is
+accepted. Otherwise, the documented procedure is not reproducible.

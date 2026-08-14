@@ -1,0 +1,64 @@
+---
+title: Project Vaquero architecture
+description: "The physical, network, storage, platform, and automation layers behind the working lab."
+---
+
+# Project Vaquero architecture
+
+Project Vaquero is a compact proof environment for learning, writing, and
+repeatable demonstrations. It gives product-specific ideas a place to become
+visible workflows instead of remaining diagrams.
+
+The design is deliberately constrained by power, acoustics, cost, and available
+hardware. Those constraints are part of the architecture because they shape
+every result the lab can produce.
+
+## Architecture layers
+
+### Physical and facility layer
+
+- Compute nodes, workstation resources, rack placement, power, cooling, and UPS
+- Documented equipment ownership and procurement state
+- Acoustic limits suitable for an adjacent working office
+
+### Network and access layer
+
+- Addressing, DNS, ingress, management, and out-of-band paths
+- Segmentation for management, lab workloads, user devices, and restricted tests
+- Controlled remote access for approved solution architects
+- VPN and firewall controls before external demonstrations are enabled
+
+### Storage and content layer
+
+- Local and shared storage for platform and workload data
+- Registry and package paths for connected and disconnected workflows
+- Backup, restore, and evidence-retention responsibilities
+
+### Platform layer
+
+- Red Hat OpenShift for application, virtualization, multicluster, and AI tests
+- Red Hat Quay or a supported registry design for controlled content flow
+- Red Hat Advanced Cluster Management patterns when the lab topology supports it
+
+### Automation and evidence layer
+
+- Red Hat Ansible Automation Platform patterns for build and lifecycle work
+- Repeatable validation that distinguishes installed state from accepted state
+- Logs, measurements, screenshots, and artifacts tied to each test result
+
+## State model
+
+Every architecture item should have one explicit state:
+
+1. **Proposed** — under consideration; not authorized or installed.
+2. **Accepted** — selected as the working decision.
+3. **Installed** — physically or logically present.
+4. **Validated** — exercised against defined acceptance evidence.
+5. **Retired** — intentionally removed and no longer part of the target state.
+
+## Evidence boundary
+
+A successful lab run shows that a defined workflow worked on this architecture
+under the recorded conditions. It does not establish production sizing,
+availability, disaster recovery, supportability, or security approval for
+another environment.

@@ -1,0 +1,44 @@
+---
+title: Project Vaquero lessons learned
+description: "Reusable technical lessons, including what failed and what the evidence still cannot support."
+---
+
+# Project Vaquero lessons learned
+
+Power, noise, hardware, network access, and rebuild time force every component
+to justify its place. That discipline scales even when the lab itself does not.
+
+## Rules worth carrying forward
+
+1. Separate proposed, accepted, installed, and validated state.
+2. Treat missing evidence as unknown, not healthy.
+3. Record failure conditions before changing the design.
+4. Explain exactly what a demonstration proves and what remains outside scope.
+5. Prefer rebuildable automation over undocumented manual recovery.
+6. Validate rollback and cleanup ownership before accepting a workflow.
+7. Keep customer data and opportunity records outside the lab and this site.
+
+## Constraints are useful architecture inputs
+
+The lab is adjacent to a working office. Acoustic limits matter. The platform
+must fit within known electrical, cooling, rack, network, and budget constraints.
+These limits make resource tradeoffs visible instead of allowing the design to
+assume unlimited infrastructure.
+
+## A demonstration needs an evidence contract
+
+Before a demonstration is considered ready, document:
+
+- The question it answers
+- The exact architecture and software state
+- The preconditions and test procedure
+- The expected and observed results
+- The cleanup or rollback path
+- The person who owns each operational boundary
+- The claims that remain unsupported
+
+## Production claims stay outside the lab
+
+Project Vaquero supports technical learning and field demonstrations. Production
+architecture, sizing, resilience, security, support, and disaster-recovery
+decisions require the normal Red Hat and customer validation processes.

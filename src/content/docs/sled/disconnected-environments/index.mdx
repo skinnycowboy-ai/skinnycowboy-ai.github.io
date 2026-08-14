@@ -1,0 +1,39 @@
+---
+title: Disconnected environments
+description: "Content mirroring, dependency control, updates, automation, and AI delivery for restricted networks."
+---
+
+# Operate when the network boundary is part of the architecture
+
+A disconnected design must account for the continuing movement and validation of
+trusted content, not just the first platform installation.
+
+## Products in scope
+
+- Red Hat OpenShift
+- Red Hat Quay
+- Red Hat Ansible Automation Platform and private automation hub
+- Red Hat Satellite
+- Red Hat OpenShift AI
+
+## Technical focus
+
+- Release images, Operator catalogs, and application-image mirroring
+- Package, automation-content, and model-artifact promotion
+- Controlled updates, exceptions, rollback, and evidence
+- Certificate, registry, and repository lifecycle ownership
+- Security-metadata and vulnerability-response paths
+
+## Starting documents
+
+| Status | Document |
+| --- | --- |
+| Draft | [Disconnected OpenShift content flow before installation](/field-notes/disconnected-openshift-content-flow/) |
+| Planned | Private automation hub across a controlled boundary |
+| Planned | Model, data, and dependency inventories for disconnected AI |
+
+## Architecture question
+
+For every artifact, identify the upstream source, authorized retriever, validation
+step, transfer method, internal repository, promotion decision, rejection path,
+and retained evidence.

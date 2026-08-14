@@ -1,0 +1,73 @@
+---
+title: Platform & AI Technical Field Notes
+description: "A working technical library for Red Hat OpenShift, AI, virtualization, automation, Project Vaquero, and SLED."
+template: splash
+hero:
+  tagline: Product-specific architecture notes, build journals, and field lessons centered on Red Hat platforms and public-sector technical problems.
+  actions:
+    - text: Browse Red Hat OpenShift
+      link: /openshift/
+      variant: primary
+    - text: Open the SLED branch
+      link: /sled/
+      variant: minimal
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Technical library
+
+Choose the Red Hat product area you are working on. These are durable technical
+collections, not campaign landing pages.
+
+<CardGrid>
+  <LinkCard title="Red Hat OpenShift" href="/openshift/" description="Platform architecture, lifecycle, application delivery, multicluster management, and disconnected operations." />
+  <LinkCard title="Red Hat OpenShift AI" href="/red-hat-ai/" description="Private inference, retrieval, evaluation, model governance, and AI workload operations." />
+  <LinkCard title="OpenShift Virtualization" href="/virtualization/" description="VM migration, operations, networking, storage, backup, and coexistence with containers." />
+  <LinkCard title="Ansible Automation Platform" href="/automation/" description="Automation architecture, execution environments, event-driven operations, and evidence capture." />
+  <LinkCard title="Home lab engineering" href="/homelab/" description="Power, acoustics, networking, storage, and repeatable build notes from Project Vaquero." />
+  <LinkCard title="Field notes" href="/field-notes/" description="Long-form, product-specific working notes ready for technical and editorial review." />
+</CardGrid>
+
+## SLED branch
+
+The [SLED library](/sled/) provides a second route into the same knowledge by
+education or government context, modernization problem, operating constraint,
+security requirement, application-platform objective, or AI use case.
+
+<CardGrid>
+  <LinkCard title="Education" href="/sled/education/" description="Research platforms, shared services, campus automation, and technical skills." />
+  <LinkCard title="State & local government" href="/sled/state-local-government/" description="Constituent services, shared platforms, resilience, and constrained teams." />
+  <LinkCard title="Modernization" href="/sled/modernization/" description="VM migration, application assessment, platform consolidation, and phased adoption." />
+  <LinkCard title="Disconnected environments" href="/sled/disconnected-environments/" description="Controlled content flow, updates, automation, and AI in restricted networks." />
+  <LinkCard title="Security & compliance" href="/sled/security-compliance/" description="Policy, vulnerability response, software supply chain, and evidence." />
+  <LinkCard title="Artificial intelligence" href="/sled/artificial-intelligence/" description="Private inference, evaluation, retrieval, governance, and operational ownership." />
+</CardGrid>
+
+## Project Vaquero
+
+[Project Vaquero](/project-vaquero/) is the proof environment behind the writing.
+It turns Red Hat platform ideas into observable lab workflows while documenting
+the exact evidence boundary.
+
+```text
+src/content/docs/
+├── project-vaquero/
+│   ├── architecture.mdx
+│   ├── build-journal.mdx
+│   └── lessons-learned.mdx
+├── sled/
+├── openshift/
+├── red-hat-ai/
+├── virtualization/
+├── automation/
+├── homelab/
+└── field-notes/
+```
+
+:::note[Editorial boundary]
+These are working technical notes developed for a Red Hat field role. They are
+not official Red Hat product documentation, support guidance, or a production
+architecture review. No customer, contact, or opportunity data belongs in this
+repository.
+:::

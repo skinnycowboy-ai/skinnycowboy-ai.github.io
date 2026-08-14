@@ -1,0 +1,33 @@
+---
+title: Project Vaquero
+description: "Architecture, build journal, and lessons from the working Red Hat platform demonstration environment."
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+# The working lab behind the technical notes
+
+Project Vaquero is a compact Red Hat platform environment for architecture
+experiments, repeatable demonstrations, build evidence, and honest lessons
+learned.
+
+<CardGrid>
+  <LinkCard title="Architecture" href="/project-vaquero/architecture/" description="Physical, network, storage, platform, and automation layers." />
+  <LinkCard title="Build journal" href="/project-vaquero/build-journal/" description="Accepted decisions, changes, failures, evidence, and next experiments." />
+  <LinkCard title="Lessons learned" href="/project-vaquero/lessons-learned/" description="Reusable technical lessons and explicit evidence limits." />
+</CardGrid>
+
+## Product tracks
+
+| Track | Demonstration scope |
+| --- | --- |
+| Red Hat OpenShift | Installation, lifecycle, application delivery, GitOps, and multicluster patterns |
+| OpenShift Virtualization | VM lifecycle, migration, network, storage, backup, and operational workflows |
+| Red Hat AI | Private inference, retrieval, evaluation, and model-serving experiments |
+| Ansible Automation Platform | Repeatable builds, validation, remediation, and evidence capture |
+
+:::caution[Evidence boundary]
+A Project Vaquero result is evidence that a defined workflow ran on the recorded
+lab architecture under the recorded conditions. It is not production sizing,
+availability, security approval, supportability, or disaster-recovery assurance.
+:::
