@@ -1,5 +1,6 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join, relative } from 'node:path';
+import { exposesWithdrawnLightwellPositioning } from './content-boundaries.mjs';
 
 const root = new URL('../', import.meta.url);
 const docsRoot = new URL('../src/content/docs/', import.meta.url);
@@ -46,10 +47,6 @@ async function collectFiles(directory) {
 }
 
 const errors = [];
-const withdrawnLightwellPhrases = [
-  /Project Lightwell[\s\S]{0,240}field-developed buying motion/i,
-  /Project Lightwell[\s\S]{0,240}not a Red Hat product/i,
-];
 
 for (const file of requiredFiles) {
   try {
@@ -82,7 +79,7 @@ for (const file of files) {
     }
   }
 
-  if (withdrawnLightwellPhrases.some((phrase) => phrase.test(content))) {
+  if (exposesWithdrawnLightwellPositioning(content)) {
     errors.push(`${name}: exposes the withdrawn Lightwell product-positioning claim.`);
   }
 
