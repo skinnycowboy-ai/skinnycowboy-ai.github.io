@@ -12,6 +12,7 @@ const requiredFiles = [
   'project-vaquero/build-journal.mdx',
   'project-vaquero/lessons-learned.mdx',
   'sled/index.mdx',
+  'sled/solutions/index.mdx',
   'sled/campaign-hub/index.mdx',
   'sled/education/index.mdx',
   'sled/state-local-government/index.mdx',
@@ -60,6 +61,21 @@ for (const file of files) {
   if (!content.startsWith('---\n')) errors.push(`${name}: missing YAML frontmatter`);
   if (!/^title:\s+.+$/m.test(content)) errors.push(`${name}: missing title`);
   if (!/^description:\s+.+$/m.test(content)) errors.push(`${name}: missing description`);
+
+  const internalPhrases = [
+    /SLED Campaign Hub/i,
+    /customer signal/i,
+    /outreach handoff/i,
+    /qualification layer/i,
+    /does not publish automatically/i,
+    /CRM exports/i,
+  ];
+  for (const phrase of internalPhrases) {
+    if (phrase.test(content)) {
+      errors.push(`${name}: exposes internal campaign or outreach language.`);
+      break;
+    }
+  }
 }
 
 const lightwell = await readFile(
@@ -73,18 +89,28 @@ if (!/not a Red Hat product/i.test(lightwell)) {
   errors.push('Project Lightwell must explicitly state that it is not a Red Hat product.');
 }
 
-const campaignHub = await readFile(
+const solutions = await readFile(new URL('sled/solutions/index.mdx', docsRoot), 'utf8');
+if (!/public-sector/i.test(solutions) || !/What to validate/i.test(solutions)) {
+  errors.push('SLED Solutions must remain customer-focused and validation-oriented.');
+}
+if (!/field-developed buying motion/i.test(solutions) || !/not a Red Hat product/i.test(solutions)) {
+  errors.push('SLED Solutions must retain the Project Lightwell naming boundary.');
+}
+
+const legacyRoute = await readFile(
   new URL('sled/campaign-hub/index.mdx', docsRoot),
   'utf8',
 );
-if (!/field-developed buying motion/i.test(campaignHub)) {
-  errors.push('The SLED Campaign Hub must retain the Project Lightwell buying-motion boundary.');
+if (!legacyRoute.includes('/sled/solutions/')) {
+  errors.push('The legacy SLED route must direct readers to SLED Solutions.');
 }
-if (!/not a Red Hat product/i.test(campaignHub)) {
-  errors.push('The SLED Campaign Hub must retain the Project Lightwell product-name boundary.');
+
+const config = await readFile(new URL('../astro.config.mjs', import.meta.url), 'utf8');
+if (/autogenerate/.test(config)) {
+  errors.push('Public navigation must use explicit labels instead of directory-generated labels.');
 }
-if (!/does not publish automatically to external\s+networks/i.test(campaignHub)) {
-  errors.push('The SLED Campaign Hub must retain the human-reviewed outreach boundary.');
+if (!/slug:\s*'sled\/solutions'/.test(config)) {
+  errors.push('Public navigation must include the SLED Solutions route.');
 }
 
 if (errors.length > 0) {
@@ -92,5 +118,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`Validated ${files.length} content files and all required editorial boundaries.`);
-
+console.log(`Validated ${files.length} content files and all public-site boundaries.`);

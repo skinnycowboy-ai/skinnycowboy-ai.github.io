@@ -16,6 +16,7 @@ const requiredRoutes = [
   'project-vaquero/build-journal/index.html',
   'project-vaquero/lessons-learned/index.html',
   'sled/index.html',
+  'sled/solutions/index.html',
   'sled/campaign-hub/index.html',
   'sled/security-compliance/index.html',
   'field-notes/index.html',
@@ -71,11 +72,19 @@ for (const file of htmlFiles) {
 }
 
 const home = await readFile(new URL('index.html', dist), 'utf8');
-if (!home.includes('Platform &amp; AI Technical Field Notes')) {
-  errors.push('Home page is missing the expected site title.');
+if (!home.includes('SLED Platform &amp; AI Technical Resources')) {
+  errors.push('Home page is missing the customer-facing site title.');
 }
-if (!home.includes('Red Hat OpenShift')) {
-  errors.push('Home page is missing the Red Hat OpenShift collection.');
+if (!home.includes('Explore SLED solutions') || !home.includes('Red Hat OpenShift')) {
+  errors.push('Home page is missing the SLED solution path or Red Hat product guides.');
+}
+
+const solutions = await readFile(new URL('sled/solutions/index.html', dist), 'utf8');
+if (!/What to validate/i.test(solutions) || !/public-sector/i.test(solutions)) {
+  errors.push('Rendered SLED Solutions page lost its customer-focused validation content.');
+}
+if (!/field-developed buying motion/i.test(solutions) || !/not a Red Hat product/i.test(solutions)) {
+  errors.push('Rendered SLED Solutions page lost the Project Lightwell boundary.');
 }
 
 const lightwell = await readFile(
@@ -89,18 +98,23 @@ if (!/not a Red Hat product/i.test(lightwell)) {
   errors.push('Rendered Project Lightwell page lost the product-name boundary.');
 }
 
-const campaignHub = await readFile(
-  new URL('sled/campaign-hub/index.html', dist),
-  'utf8',
-);
-if (!/field-developed buying motion/i.test(campaignHub)) {
-  errors.push('Rendered SLED Campaign Hub lost the Project Lightwell buying-motion boundary.');
+const legacyRoute = await readFile(new URL('sled/campaign-hub/index.html', dist), 'utf8');
+if (!legacyRoute.includes('/sled/solutions/')) {
+  errors.push('Rendered legacy SLED route does not direct readers to SLED Solutions.');
 }
-if (!/not a Red Hat product/i.test(campaignHub)) {
-  errors.push('Rendered SLED Campaign Hub lost the Project Lightwell product-name boundary.');
-}
-if (!/does not publish automatically to external\s+networks/i.test(campaignHub)) {
-  errors.push('Rendered SLED Campaign Hub lost the human-reviewed outreach boundary.');
+
+const renderedContent = (await Promise.all(htmlFiles.map((file) => readFile(file, 'utf8')))).join('\n');
+for (const phrase of [
+  /SLED Campaign Hub/i,
+  /customer signal/i,
+  /outreach handoff/i,
+  /qualification layer/i,
+  /does not publish automatically/i,
+]) {
+  if (phrase.test(renderedContent)) {
+    errors.push('Rendered site exposes internal campaign or outreach language.');
+    break;
+  }
 }
 
 if (errors.length > 0) {
@@ -109,4 +123,3 @@ if (errors.length > 0) {
 }
 
 console.log(`Validated ${htmlFiles.length} rendered pages, required artifacts, and internal links.`);
-

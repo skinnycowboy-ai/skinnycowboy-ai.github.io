@@ -5,10 +5,10 @@ description: "A product-specific framework for comparing storage options against
 
 # Storage alternatives for OpenShift Virtualization
 
-:::caution[Working field note]
-This draft is for technical and editorial review. Supported configurations and
-product behavior must be verified against current official Red Hat documentation
-before publication or customer reuse.
+:::caution[Validation boundary]
+This framework does not define a supported configuration for a specific
+environment. Verify product behavior, interoperability, lifecycle, and support
+against current official Red Hat documentation and the proposed architecture.
 :::
 
 **Products discussed:** Red Hat OpenShift Virtualization, Red Hat OpenShift
@@ -106,11 +106,10 @@ It cannot prove production performance, capacity, availability, supportability,
 or disaster-recovery outcomes for a customer environment. Those claims require a
 customer-specific architecture and validation plan.
 
-## Next writing tasks
+## Apply the framework
 
-- Create a reusable VM workload inventory worksheet
-- Define a storage decision-record template
-- Build a Project Vaquero VM migration evidence contract
-- Document backup, restore, and rollback acceptance tests
+Use the evidence categories above to build a workload inventory, storage decision
+record, representative migration test, and acceptance plan for backup, restore,
+and rollback.
 
 Related SLED context: [Modernization](/sled/modernization/).

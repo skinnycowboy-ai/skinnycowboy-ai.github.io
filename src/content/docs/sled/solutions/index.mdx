@@ -1,0 +1,150 @@
+---
+title: SLED Platform & AI Solutions
+description: "Technical paths for public-sector virtualization, application delivery, disconnected operations, governed AI, and human-controlled remediation."
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+# Modern platform paths for public-sector IT
+
+This page connects common state, local government, and education technology
+challenges to relevant Red Hat platforms and the technical questions that should
+be answered before a design moves forward.
+
+## Start with the outcome
+
+<CardGrid>
+  <LinkCard title="Modernize virtualization" href="#virtualization-modernization" description="Move selected virtual machines while preserving service continuity, rollback, and operational ownership." />
+  <LinkCard title="Standardize application delivery" href="#application-platform-standardization" description="Create a consistent path for building, promoting, securing, and operating applications." />
+  <LinkCard title="Operate in restricted networks" href="#disconnected-and-controlled-operations" description="Manage the continuing flow of trusted platform, application, automation, and AI content." />
+  <LinkCard title="Build governed private AI" href="#private-and-governed-ai" description="Keep data, models, access, evaluation, infrastructure, and operations inside explicit control boundaries." />
+  <LinkCard title="Improve remediation safely" href="#human-governed-remediation" description="Reduce time from a confirmed finding to a verified correction without removing human approval." />
+</CardGrid>
+
+## Virtualization modernization
+
+**Challenge.** Platform lifecycle, capacity, cost, datacenter change, or skills
+pressure can create a need to move virtual machines. That does not mean every
+application must be rewritten at the same time.
+
+**Platform approach.** Evaluate Red Hat OpenShift Virtualization and Migration
+Toolkit for Virtualization alongside the required OpenShift storage, networking,
+backup, identity, and operations design.
+
+**What to validate.** Workload dependencies, supported guest operating systems,
+network and storage mappings, migration windows, backup and recovery, target
+capacity, acceptance tests, operational ownership, and rollback conditions.
+
+<CardGrid>
+  <LinkCard title="Modernization guidance" href="/sled/modernization/" description="Separate retain, rehost, replatform, refactor, replace, and retire decisions." />
+  <LinkCard title="OpenShift Virtualization guide" href="/virtualization/" description="Explore migration, networking, storage, backup, and day-two operations." />
+  <LinkCard title="Storage decision field note" href="/field-notes/openshift-virtualization-storage-decisions/" description="Compare storage alternatives against workload evidence and operating ownership." />
+</CardGrid>
+
+## Application platform standardization
+
+**Challenge.** Application teams may use different delivery paths, runtime
+controls, promotion methods, and policy checks. Releases slow down when ownership
+and evidence disappear between handoffs.
+
+**Platform approach.** Evaluate Red Hat OpenShift as a shared application
+platform, with Red Hat OpenShift GitOps and the source, build, registry, policy,
+and observability systems the organization already uses.
+
+**What to validate.** Application ownership, declarative configuration, build
+and promotion boundaries, policy enforcement, secrets, observability, rollback,
+and the division of responsibility between platform and application teams.
+
+<CardGrid>
+  <LinkCard title="SLED application platforms" href="/sled/application-platforms/" description="Review platform engineering, GitOps, self-service, modernization, and runtime operations." />
+  <LinkCard title="Red Hat OpenShift guide" href="/openshift/" description="Explore platform architecture, lifecycle, delivery, and multicluster operations." />
+</CardGrid>
+
+## Disconnected and controlled operations
+
+**Challenge.** Restricted networks, sovereignty requirements, or security
+boundaries control how software enters an environment. The lasting problem is
+the complete content lifecycle—not only the first installation.
+
+**Platform approach.** Evaluate OpenShift disconnected installation and update
+workflows, registry architecture, the oc-mirror plugin, and repeatable automation
+for controlled transfer and evidence capture.
+
+**What to validate.** Approved upstream sources, staging, scanning, integrity,
+provenance, capacity, transfer cadence, missing dependencies, exception handling,
+promotion, rollback, and retained evidence.
+
+<CardGrid>
+  <LinkCard title="Disconnected operations" href="/sled/disconnected-environments/" description="Plan platform, application, automation, package, and model-content lifecycles." />
+  <LinkCard title="Disconnected content-flow field note" href="/field-notes/disconnected-openshift-content-flow/" description="Use a boundary-aware architecture and evidence model for mirrored content." />
+</CardGrid>
+
+## Private and governed AI
+
+**Challenge.** Public-sector AI use cases may involve sensitive data, controlled
+model access, restricted networks, limited accelerator capacity, and a need to
+explain how a result was produced.
+
+**Platform approach.** Evaluate Red Hat OpenShift AI on Red Hat OpenShift for
+model serving, data access, evaluation, resource governance, monitoring, and
+operational control.
+
+**What to validate.** Data handling, model provenance, access policy, retrieval
+boundaries, evaluation criteria, quotas and accelerators, monitoring, update and
+rollback paths, and ownership after the initial evaluation.
+
+<CardGrid>
+  <LinkCard title="SLED artificial intelligence" href="/sled/artificial-intelligence/" description="Start with five inventories before selecting a model or serving pattern." />
+  <LinkCard title="Red Hat OpenShift AI guide" href="/red-hat-ai/" description="Explore private inference, retrieval, evaluation, governance, and operations." />
+</CardGrid>
+
+## Human-governed remediation
+
+**Challenge.** Security teams can identify vulnerabilities faster than
+application and operations teams can safely correct them. A production change
+still requires context, testing, approval, deployment control, verification, and
+rollback.
+
+**Platform approach.** Project Lightwell maps a human-controlled remediation
+workflow to capabilities that may include Red Hat Advanced Cluster Security for
+Kubernetes, Red Hat OpenShift AI, Red Hat OpenShift, Red Hat Ansible Automation
+Platform, and Git-based delivery workflows.
+
+**What to validate.** Finding context, prioritization criteria, model and prompt
+provenance, compatibility and regression tests, separation of duties, human
+approval, production credentials, deployment, verification, rollback, and the
+evidence retained at every gate.
+
+:::caution[Project Lightwell boundary]
+Project Lightwell is a **field-developed buying motion** and demonstration
+concept. It is **not a Red Hat product** or a fixed reference architecture.
+Product mappings and workflow designs must be validated against the current
+customer architecture, product documentation, subscriptions, and support
+boundaries.
+:::
+
+<CardGrid>
+  <LinkCard title="Project Lightwell technical note" href="/field-notes/project-lightwell-closed-loop/" description="Follow the workflow from a confirmed finding through human approval, deployment, verification, and evidence." />
+  <LinkCard title="Security & compliance" href="/sled/security-compliance/" description="Review policy, vulnerability response, supply chain, approvals, and evidence." />
+  <LinkCard title="Ansible Automation Platform guide" href="/automation/" description="Explore repeatable orchestration, execution environments, workflow control, and evidence capture." />
+</CardGrid>
+
+## See the ideas tested
+
+[Project Vaquero](/project-vaquero/) is a compact demonstration lab used to test
+bounded workflows, integrations, failure conditions, and evidence collection.
+A successful lab run shows what happened on the recorded lab architecture under
+the recorded conditions. It does not establish production sizing, availability,
+resilience, security approval, compliance, supportability, or disaster recovery.
+
+## Official Red Hat documentation
+
+These versioned references were reviewed on **August 16, 2026**. Confirm the
+current supported version and lifecycle before using them for a design decision.
+
+- [Migration Toolkit for Virtualization 2.10](https://docs.redhat.com/en/documentation/migration_toolkit_for_virtualization/2.10/)
+- [OpenShift Container Platform 4.20: disconnected environments](https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html-single/disconnected_environments/index)
+- [OpenShift Container Platform 4.20: GitOps](https://docs.redhat.com/en/documentation/openshift_container_platform/4.20/html-single/gitops/index)
+- [Red Hat OpenShift AI Self-Managed 3.3](https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/3.3)
+- [Red Hat Advanced Cluster Security for Kubernetes 4.8](https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_security_for_kubernetes/4.8)
+- [Red Hat Ansible Automation Platform 2.6](https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/)
