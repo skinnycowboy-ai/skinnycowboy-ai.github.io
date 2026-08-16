@@ -1,5 +1,6 @@
 import { access, readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
+import { exposesWithdrawnLightwellPositioning } from './content-boundaries.mjs';
 
 const dist = new URL('../dist/', import.meta.url);
 
@@ -29,10 +30,6 @@ const requiredRoutes = [
 ];
 
 const errors = [];
-const withdrawnLightwellPhrases = [
-  /Project Lightwell[\s\S]{0,240}field-developed buying motion/i,
-  /Project Lightwell[\s\S]{0,240}not a Red Hat product/i,
-];
 
 for (const route of requiredRoutes) {
   try {
@@ -61,7 +58,7 @@ for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
   const visibleText = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
 
-  if (withdrawnLightwellPhrases.some((phrase) => phrase.test(visibleText))) {
+  if (exposesWithdrawnLightwellPositioning(visibleText)) {
     errors.push(`${file}: renders the withdrawn Lightwell product-positioning claim.`);
   }
 

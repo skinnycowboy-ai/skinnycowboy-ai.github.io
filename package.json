@@ -12,7 +12,8 @@
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "start": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "check": "ASTRO_TELEMETRY_DISABLED=1 astro check",
-    "validate:content": "node scripts/validate-content.mjs",
+    "test:boundaries": "node scripts/content-boundaries.test.mjs",
+    "validate:content": "npm run test:boundaries && node scripts/validate-content.mjs",
     "build": "npm run validate:content && npm run check && ASTRO_TELEMETRY_DISABLED=1 astro build && node scripts/validate-build.mjs",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "test": "npm run build"
