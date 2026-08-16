@@ -22,6 +22,7 @@ const requiredRoutes = [
   'field-notes/index.html',
   'field-notes/openshift-virtualization-storage-decisions/index.html',
   'field-notes/disconnected-openshift-content-flow/index.html',
+  'lightwell/index.html',
   'field-notes/project-lightwell-closed-loop/index.html',
   '404.html',
   'sitemap-index.xml',
@@ -83,24 +84,38 @@ const solutions = await readFile(new URL('sled/solutions/index.html', dist), 'ut
 if (!/What to validate/i.test(solutions) || !/public-sector/i.test(solutions)) {
   errors.push('Rendered SLED Solutions page lost its customer-focused validation content.');
 }
-if (!/field-developed buying motion/i.test(solutions) || !/not a Red Hat product/i.test(solutions)) {
-  errors.push('Rendered SLED Solutions page lost the Project Lightwell boundary.');
+if (!/joint IBM and Red Hat/i.test(solutions) || !/Lightwell Network is currently available/i.test(solutions)) {
+  errors.push('Rendered SLED Solutions page lost the verified Lightwell ownership or availability boundary.');
 }
 
 const lightwell = await readFile(
-  new URL('field-notes/project-lightwell-closed-loop/index.html', dist),
+  new URL('lightwell/index.html', dist),
   'utf8',
 );
-if (!/field-developed buying motion/i.test(lightwell)) {
-  errors.push('Rendered Project Lightwell page lost the buying-motion boundary.');
+if (!/joint IBM and Red Hat/i.test(lightwell)) {
+  errors.push('Rendered Lightwell page lost the IBM and Red Hat ownership statement.');
 }
-if (!/not a Red Hat product/i.test(lightwell)) {
-  errors.push('Rendered Project Lightwell page lost the product-name boundary.');
+if (!/Lightwell Network is currently available/i.test(lightwell)) {
+  errors.push('Rendered Lightwell page lost the current Network availability statement.');
+}
+if (!/Lightwell Clearinghouse Premier\s+is limited availability/i.test(lightwell)) {
+  errors.push('Rendered Lightwell page lost the Clearinghouse Premier availability boundary.');
+}
+if (!/third-party open source dependencies/i.test(lightwell)) {
+  errors.push('Rendered Lightwell page lost the third-party dependency scope.');
 }
 
 const legacyRoute = await readFile(new URL('sled/campaign-hub/index.html', dist), 'utf8');
 if (!legacyRoute.includes('/sled/solutions/')) {
   errors.push('Rendered legacy SLED route does not direct readers to SLED Solutions.');
+}
+
+const legacyLightwell = await readFile(
+  new URL('field-notes/project-lightwell-closed-loop/index.html', dist),
+  'utf8',
+);
+if (!legacyLightwell.includes('/lightwell/')) {
+  errors.push('Rendered legacy Lightwell route does not direct readers to the corrected overview.');
 }
 
 const renderedContent = (await Promise.all(htmlFiles.map((file) => readFile(file, 'utf8')))).join('\n');
@@ -110,6 +125,8 @@ for (const phrase of [
   /outreach handoff/i,
   /qualification layer/i,
   /does not publish automatically/i,
+  /field-developed buying motion/i,
+  /not a Red Hat product/i,
 ]) {
   if (phrase.test(renderedContent)) {
     errors.push('Rendered site exposes internal campaign or outreach language.');

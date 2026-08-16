@@ -67,8 +67,8 @@ git diff --check
 git status --short
 ```
 
-`npm test` validates the required content hierarchy, enforces the Project
-Lightwell naming boundary, type-checks the Astro project, produces the static
+`npm test` validates the required content hierarchy, enforces the verified
+Lightwell offering and availability boundaries, type-checks the Astro project, produces the static
 site, verifies required build artifacts, and resolves every internal link in the
 rendered HTML.
 

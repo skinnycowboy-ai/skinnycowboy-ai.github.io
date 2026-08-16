@@ -1,6 +1,6 @@
 ---
 title: SLED Platform & AI Solutions
-description: "Technical paths for public-sector virtualization, application delivery, disconnected operations, governed AI, and human-controlled remediation."
+description: "Technical paths for public-sector virtualization, application delivery, disconnected operations, governed AI, and open source dependency remediation."
 ---
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
@@ -18,7 +18,7 @@ be answered before a design moves forward.
   <LinkCard title="Standardize application delivery" href="#application-platform-standardization" description="Create a consistent path for building, promoting, securing, and operating applications." />
   <LinkCard title="Operate in restricted networks" href="#disconnected-and-controlled-operations" description="Manage the continuing flow of trusted platform, application, automation, and AI content." />
   <LinkCard title="Build governed private AI" href="#private-and-governed-ai" description="Keep data, models, access, evaluation, infrastructure, and operations inside explicit control boundaries." />
-  <LinkCard title="Improve remediation safely" href="#human-governed-remediation" description="Reduce time from a confirmed finding to a verified correction without removing human approval." />
+  <LinkCard title="Remediate open source dependencies" href="#lightwell-open-source-remediation" description="Use validated fixes for eligible dependencies when a normal upgrade would create unacceptable disruption or risk." />
 </CardGrid>
 
 ## Virtualization modernization
@@ -98,35 +98,42 @@ rollback paths, and ownership after the initial evaluation.
   <LinkCard title="Red Hat OpenShift AI guide" href="/red-hat-ai/" description="Explore private inference, retrieval, evaluation, governance, and operations." />
 </CardGrid>
 
-## Human-governed remediation
+## Lightwell open source remediation
 
-**Challenge.** Security teams can identify vulnerabilities faster than
-application and operations teams can safely correct them. A production change
-still requires context, testing, approval, deployment control, verification, and
-rollback.
+**Challenge.** A vulnerable third-party open source dependency may be embedded
+in a long-lived application whose normal upgrade path introduces breaking
+changes, lengthy regression or recertification work, release-window conflicts,
+or unacceptable production risk.
 
-**Platform approach.** Project Lightwell maps a human-controlled remediation
-workflow to capabilities that may include Red Hat Advanced Cluster Security for
-Kubernetes, Red Hat OpenShift AI, Red Hat OpenShift, Red Hat Ansible Automation
-Platform, and Git-based delivery workflows.
+**Offering approach.** Lightwell is a joint IBM and Red Hat commercial
+initiative that combines AI-driven automation with human engineering expertise
+to create validated remediations for eligible open source dependencies.
+Customers access signed artifacts through secured repositories and integrate
+them into their existing build and software-delivery workflows.
 
-**What to validate.** Finding context, prioritization criteria, model and prompt
-provenance, compatibility and regression tests, separation of duties, human
-approval, production credentials, deployment, verification, rollback, and the
-evidence retained at every gate.
+**Current offerings.** Lightwell Network is currently available as an annual
+subscription. Lightwell Clearinghouse Premier is limited availability for
+preselected critical-infrastructure customers and adds member-specific package
+remediation, novel-vulnerability handling, secured embargo coordination, and
+TAM services.
 
-:::caution[Project Lightwell boundary]
-Project Lightwell is a **field-developed buying motion** and demonstration
-concept. It is **not a Red Hat product** or a fixed reference architecture.
-Product mappings and workflow designs must be validated against the current
-customer architecture, product documentation, subscriptions, and support
-boundaries.
+**What to validate.** Package ecosystem and exact version, vulnerability,
+catalog coverage, offering eligibility, the reason a normal upgrade is blocked,
+repository and pipeline integration, artifact signatures, source and SBOM
+evidence, application regression tests, certification requirements, approval,
+deployment, and rollback.
+
+:::note[SLED availability boundary]
+IBM and Red Hat announced no-charge Lightwell access for more than 185 leading
+U.S. research universities and 100 major U.S. NGOs and think tanks. Eligibility
+must be confirmed with Red Hat. Expansion of Clearinghouse Premier to government
+is planned for a future phase and is not current general availability.
 :::
 
 <CardGrid>
-  <LinkCard title="Project Lightwell technical note" href="/field-notes/project-lightwell-closed-loop/" description="Follow the workflow from a confirmed finding through human approval, deployment, verification, and evidence." />
-  <LinkCard title="Security & compliance" href="/sled/security-compliance/" description="Review policy, vulnerability response, supply chain, approvals, and evidence." />
-  <LinkCard title="Ansible Automation Platform guide" href="/automation/" description="Explore repeatable orchestration, execution environments, workflow control, and evidence capture." />
+  <LinkCard title="Lightwell technical overview" href="/lightwell/" description="Review the offerings, customer workflow, SLED relevance, adoption boundaries, and a focused evaluation plan." />
+  <LinkCard title="Security & compliance" href="/sled/security-compliance/" description="Review software supply chain, vulnerability response, policy, approvals, and evidence." />
+  <LinkCard title="Application platforms" href="/sled/application-platforms/" description="Connect remediated dependencies to existing build, test, release, and production controls." />
 </CardGrid>
 
 ## See the ideas tested
@@ -137,7 +144,7 @@ A successful lab run shows what happened on the recorded lab architecture under
 the recorded conditions. It does not establish production sizing, availability,
 resilience, security approval, compliance, supportability, or disaster recovery.
 
-## Official Red Hat documentation
+## Official product and documentation sources
 
 These versioned references were reviewed on **August 16, 2026**. Confirm the
 current supported version and lifecycle before using them for a design decision.
@@ -148,3 +155,5 @@ current supported version and lifecycle before using them for a design decision.
 - [Red Hat OpenShift AI Self-Managed 3.3](https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/3.3)
 - [Red Hat Advanced Cluster Security for Kubernetes 4.8](https://docs.redhat.com/en/documentation/red_hat_advanced_cluster_security_for_kubernetes/4.8)
 - [Red Hat Ansible Automation Platform 2.6](https://docs.redhat.com/en/documentation/red_hat_ansible_automation_platform/2.6/)
+- [Red Hat: Lightwell offering details](https://www.redhat.com/en/lightwell)
+- [IBM: Lightwell product overview](https://www.ibm.com/products/lightwell)

@@ -2,6 +2,7 @@
 
 - Status: Accepted for implementation
 - Date: 2026-08-14
+- Product-classification amendment: ADR 0005
 
 ## Context
 
@@ -16,7 +17,8 @@ product-documentation property, CRM, lead system, or autonomous social publisher
 - Exclude Salesforce integration and all customer, contact, opportunity, pricing,
   and account-plan data.
 - Keep social derivatives as human-reviewed drafts for approved systems.
-- Label Project Lightwell as a field-developed buying motion, not a Red Hat product.
+- Describe Lightwell as a joint IBM and Red Hat commercial initiative and verify
+  offering status against current official sources.
 - State Project Vaquero evidence limits in every demonstration-derived article.
 
 ## Consequences
