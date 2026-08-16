@@ -5,10 +5,10 @@ description: "Plan how release images, Operators, automation content, packages, 
 
 # Disconnected OpenShift starts with content flow
 
-:::caution[Working field note]
-This draft is for technical and editorial review. Supported configurations and
-product behavior must be verified against current official Red Hat documentation
-before publication or customer reuse.
+:::caution[Validation boundary]
+This framework does not define a supported configuration for a specific
+environment. Verify product behavior, interoperability, lifecycle, and support
+against current official Red Hat documentation and the proposed architecture.
 :::
 
 **Products discussed:** Red Hat OpenShift Container Platform, Red Hat Quay, Red
@@ -93,11 +93,10 @@ artifact identity, automate repeatable promotion, and retain transfer evidence.
 It cannot establish customer-specific boundary controls, registry capacity,
 security authorization, lifecycle staffing, or production supportability.
 
-## Next writing tasks
+## Apply the framework
 
-- Create a disconnected-content inventory template
-- Map an OpenShift release and Operator catalog promotion flow
-- Add private automation hub and package content paths
-- Extend the model for AI artifacts, evaluations, and dependencies
+Use the trust-zone and content-class inventories above to map the OpenShift
+release, Operator catalog, application, automation, package, and AI-artifact
+paths required by the target environment.
 
 Related SLED context: [Disconnected environments](/sled/disconnected-environments/).

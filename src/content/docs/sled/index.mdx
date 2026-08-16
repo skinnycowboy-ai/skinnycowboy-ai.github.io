@@ -1,43 +1,46 @@
 ---
-title: SLED technical library
-description: "Red Hat product and architecture notes organized for state, local government, and education contexts."
+title: SLED technical resources
+description: "Red Hat platform guidance organized for state, local government, and education technology priorities."
 ---
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-# A public-sector branch of the technical library
+# Technical guidance for public-sector platform decisions
 
-Browse the same Red Hat platform knowledge by education or government context,
-or by modernization, disconnected operations, security, applications, and AI.
+State, local government, and education organizations often balance long-lived
+applications, constrained teams, regulated data, mission continuity, and
+infrastructure that cannot always depend on a public network. This section
+organizes the technical library around those conditions.
 
 <CardGrid>
-  <LinkCard title="SLED Campaign Hub" href="/sled/campaign-hub/" description="Start with a customer signal and connect it to discovery, a technical proof, evidence, and the next decision." />
+  <LinkCard title="Explore SLED solutions" href="/sled/solutions/" description="Start with the outcome: virtualization modernization, application delivery, disconnected operations, governed AI, or human-controlled remediation." />
   <LinkCard title="Education" href="/sled/education/" description="Research, shared services, application delivery, campus automation, and skills." />
   <LinkCard title="State & local government" href="/sled/state-local-government/" description="Constituent services, shared platforms, resilience, and long-lived systems." />
-  <LinkCard title="Modernization" href="/sled/modernization/" description="VM migration, application assessment, platform consolidation, and phased adoption." />
-  <LinkCard title="Disconnected environments" href="/sled/disconnected-environments/" description="Content mirroring, dependency control, updates, automation, and AI." />
-  <LinkCard title="Security & compliance" href="/sled/security-compliance/" description="Policy, vulnerability response, supply chain, and audit-ready evidence." />
-  <LinkCard title="Application platforms" href="/sled/application-platforms/" description="Developer workflows, GitOps, self-service, APIs, and runtime operations." />
-  <LinkCard title="Artificial intelligence" href="/sled/artificial-intelligence/" description="Private inference, retrieval, evaluation, governance, and AI operations." />
-  <LinkCard title="SLED field notes" href="/sled/field-notes/" description="Reusable architecture questions, demonstration plans, and technical lessons." />
 </CardGrid>
 
-## From signal to technical proof
+## Technology priorities
 
-The [SLED Campaign Hub](/sled/campaign-hub/) organizes the technical collections
-into five human-reviewed buying motions: virtualization modernization,
-application platform standardization, disconnected and controlled operations,
-private and governed AI, and Project Lightwell closed-loop remediation.
+<CardGrid>
+  <LinkCard title="Virtualization modernization" href="/sled/modernization/" description="VM migration, application assessment, platform consolidation, and phased adoption." />
+  <LinkCard title="Disconnected operations" href="/sled/disconnected-environments/" description="Content mirroring, dependency control, updates, automation, and AI." />
+  <LinkCard title="Security & compliance" href="/sled/security-compliance/" description="Policy, vulnerability response, supply chain, approvals, and audit-ready evidence." />
+  <LinkCard title="Application platforms" href="/sled/application-platforms/" description="Developer workflows, GitOps, self-service, APIs, and runtime operations." />
+  <LinkCard title="Private & governed AI" href="/sled/artificial-intelligence/" description="Private inference, retrieval, evaluation, governance, and AI operations." />
+  <LinkCard title="SLED field notes" href="/sled/field-notes/" description="Architecture questions, validation plans, and public-sector technical lessons." />
+</CardGrid>
 
-It is a navigation and qualification layer, not a CRM. Customer, contact,
-account, pricing, and opportunity data remain outside this public repository.
+## How to use this resource
 
-## Project Lightwell placement
+1. Start with the mission or operational outcome—not a product name.
+2. Identify the technical constraints, dependencies, owners, and evidence needs.
+3. Review the relevant Red Hat platform guide and field notes.
+4. Use a bounded lab or proof to test the highest-risk assumptions.
+5. Validate the production design and supported configuration with your Red Hat
+   account team and current official documentation.
 
-Project Lightwell is a [campaign-hub buying motion](/sled/campaign-hub/#5-project-lightwell-closed-loop-remediation)
-with its detailed technical treatment in the
-[closed-loop remediation field note](/field-notes/project-lightwell-closed-loop/).
-It cross-links into security and compliance, application platforms, artificial
-intelligence, and automation. It is a field-developed buying motion and
-demonstration concept, not a Red Hat product.
+## Project Lightwell
 
+[Project Lightwell](/field-notes/project-lightwell-closed-loop/) explores how
+AI-assisted analysis and automation could reduce vulnerability-remediation time
+while retaining human approval, testing, rollback, and evidence. It is a
+field-developed buying motion and demonstration concept, not a Red Hat product.

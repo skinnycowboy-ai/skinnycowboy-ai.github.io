@@ -1,14 +1,14 @@
 ---
-title: "Project Lightwell: mapping a closed-loop remediation motion to Red Hat platforms"
-description: "A working capability map for AI-assisted, human-approved vulnerability remediation using relevant Red Hat platforms."
+title: "Human-governed closed-loop remediation with Project Lightwell"
+description: "A technical exploration of AI-assisted, human-approved vulnerability remediation using relevant Red Hat platform capabilities."
 ---
 
-# Project Lightwell capability map
+# Reduce remediation time without removing human control
 
 :::caution[Name and scope]
 Project Lightwell is a **field-developed buying motion** and demonstration
-concept. It is **not a Red Hat product**. Every product mapping in this draft is
-illustrative and requires validation against the customer architecture, current
+concept. It is **not a Red Hat product**. Every product mapping in this concept is
+illustrative and requires validation against the target architecture, current
 product documentation, subscriptions, and support boundaries.
 :::
 
@@ -43,7 +43,7 @@ rather than a promise of autonomous patching.
 8. **Preserve evidence** — retain the original finding, proposal, tests, approval,
    change, verification, and rollback status.
 
-## Possible Red Hat capability map
+## Candidate Red Hat capability map
 
 | Workflow responsibility | Relevant capability to evaluate |
 | --- | --- |
@@ -53,7 +53,7 @@ rather than a promise of autonomous patching.
 | Cross-system orchestration and evidence collection | Red Hat Ansible Automation Platform |
 | Proposed changes and promotion history | Git-based application and platform workflows |
 
-This table is not a fixed reference architecture. A customer may have existing
+This table is not a fixed reference architecture. An organization may have existing
 security, testing, source-control, IT service-management, or deployment systems
 that remain part of the workflow.
 
@@ -100,9 +100,9 @@ It cannot prove production application compatibility, enterprise tool
 integration, organizational approval design, scale, or customer security
 authorization.
 
-## Buying-motion outcome
+## Intended outcome
 
-The desired customer conversation is not "buy autonomous patching." It is:
+The goal is not autonomous patching. The architecture question is:
 
 > How can we reduce remediation time while preserving application safety, human
 > accountability, repeatability, and evidence?

@@ -22,10 +22,14 @@ virtual machines on Red Hat OpenShift alongside containerized workloads.
 - Operational readiness for VM and platform administrators
 - Shared operational patterns for VMs and containerized applications
 
-## Starting documents
+## Related technical guidance
 
-| Status | Document |
-| --- | --- |
-| Draft | [Storage alternatives for OpenShift Virtualization](/field-notes/openshift-virtualization-storage-decisions/) |
-| Planned | Migration wave planning with Migration Toolkit for Virtualization |
-| Planned | Network and backup questions before the first VM moves |
+- [Storage decisions for OpenShift Virtualization](/field-notes/openshift-virtualization-storage-decisions/)
+- [SLED virtualization modernization](/sled/modernization/)
+- [Virtualization modernization solution path](/sled/solutions/#virtualization-modernization)
+
+## Questions to answer before the first workload moves
+
+- Which dependencies, service levels, and recovery objectives must be preserved?
+- How will storage, networking, backup, identity, and monitoring map to the target?
+- Who accepts the migrated workload, and what conditions trigger rollback?

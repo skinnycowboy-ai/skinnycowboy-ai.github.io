@@ -1,79 +1,56 @@
 ---
-title: Platform & AI Technical Field Notes
-description: "A working technical library for Red Hat OpenShift, AI, virtualization, automation, Project Vaquero, and SLED."
+title: SLED Platform & AI Technical Resources
+description: "Architecture guidance, field notes, and lab evidence for public-sector platform and AI decisions."
 template: splash
 hero:
-  tagline: Product-specific architecture notes, build journals, and field lessons centered on Red Hat platforms and public-sector technical problems.
+  tagline: Practical technical guidance for state, local government, and education teams evaluating Red Hat platforms.
   actions:
-    - text: Browse Red Hat OpenShift
-      link: /openshift/
+    - text: Explore SLED solutions
+      link: /sled/solutions/
       variant: primary
-    - text: Open the SLED branch
-      link: /sled/
+    - text: Browse technical field notes
+      link: /field-notes/
       variant: minimal
 ---
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Technical library
+## Start with the public-sector outcome
 
-Choose the Red Hat product area you are working on. These durable technical
-collections are the canonical source for architecture notes; campaign paths link
-here instead of copying product claims.
+Use these resources to frame an architecture question, understand the relevant
+Red Hat platform capabilities, and decide what should be validated before a
+production design or migration plan is approved.
+
+<CardGrid>
+  <LinkCard title="Modernize virtualization" href="/sled/modernization/" description="Assess workloads, dependencies, migration waves, storage, networking, rollback, and operational ownership." />
+  <LinkCard title="Standardize application delivery" href="/sled/application-platforms/" description="Evaluate shared platform services, GitOps, developer workflows, policy, and application modernization." />
+  <LinkCard title="Operate across restricted networks" href="/sled/disconnected-environments/" description="Design controlled content flow, updates, automation, and AI delivery for disconnected environments." />
+  <LinkCard title="Build private and governed AI" href="/sled/artificial-intelligence/" description="Start with data, model, access, evaluation, infrastructure, and operational-control boundaries." />
+  <LinkCard title="Improve security remediation" href="/field-notes/project-lightwell-closed-loop/" description="Explore a human-governed approach to reducing remediation time while preserving approval and evidence." />
+  <LinkCard title="See all SLED solution paths" href="/sled/solutions/" description="Compare public-sector challenges, platform approaches, validation questions, and supporting technical notes." />
+</CardGrid>
+
+## Red Hat platform guides
 
 <CardGrid>
   <LinkCard title="Red Hat OpenShift" href="/openshift/" description="Platform architecture, lifecycle, application delivery, multicluster management, and disconnected operations." />
   <LinkCard title="Red Hat OpenShift AI" href="/red-hat-ai/" description="Private inference, retrieval, evaluation, model governance, and AI workload operations." />
   <LinkCard title="OpenShift Virtualization" href="/virtualization/" description="VM migration, operations, networking, storage, backup, and coexistence with containers." />
   <LinkCard title="Ansible Automation Platform" href="/automation/" description="Automation architecture, execution environments, event-driven operations, and evidence capture." />
-  <LinkCard title="Home lab engineering" href="/homelab/" description="Power, acoustics, networking, storage, and repeatable build notes from Project Vaquero." />
-  <LinkCard title="Field notes" href="/field-notes/" description="Long-form, product-specific working notes ready for technical and editorial review." />
 </CardGrid>
 
-## SLED branch
-
-The [SLED library](/sled/) provides a second route into the same knowledge by
-education or government context, modernization problem, operating constraint,
-security requirement, application-platform objective, or AI use case. The
-[SLED Campaign Hub](/sled/campaign-hub/) connects those contexts to discovery,
-the smallest useful technical proof, evidence, and a next decision.
+## Technical evidence and field experience
 
 <CardGrid>
-  <LinkCard title="SLED Campaign Hub" href="/sled/campaign-hub/" description="Buying motions for virtualization, application platforms, disconnected operations, private AI, and Project Lightwell." />
-  <LinkCard title="Education" href="/sled/education/" description="Research platforms, shared services, campus automation, and technical skills." />
-  <LinkCard title="State & local government" href="/sled/state-local-government/" description="Constituent services, shared platforms, resilience, and constrained teams." />
-  <LinkCard title="Modernization" href="/sled/modernization/" description="VM migration, application assessment, platform consolidation, and phased adoption." />
-  <LinkCard title="Disconnected environments" href="/sled/disconnected-environments/" description="Controlled content flow, updates, automation, and AI in restricted networks." />
-  <LinkCard title="Security & compliance" href="/sled/security-compliance/" description="Policy, vulnerability response, software supply chain, and evidence." />
-  <LinkCard title="Artificial intelligence" href="/sled/artificial-intelligence/" description="Private inference, evaluation, retrieval, governance, and operational ownership." />
+  <LinkCard title="Project Vaquero demonstration lab" href="/project-vaquero/" description="Recorded architecture, experiments, build evidence, failures, and lessons from a compact Red Hat platform environment." />
+  <LinkCard title="Project Lightwell" href="/field-notes/project-lightwell-closed-loop/" description="A human-approved, AI-assisted remediation concept mapped to relevant Red Hat platform capabilities." />
+  <LinkCard title="Field notes" href="/field-notes/" description="Long-form technical notes on virtualization storage, disconnected content flow, remediation, and future topics." />
 </CardGrid>
 
-## Project Vaquero
-
-[Project Vaquero](/project-vaquero/) is the proof environment behind the writing.
-It turns Red Hat platform ideas into observable lab workflows while documenting
-the exact evidence boundary.
-
-```text
-src/content/docs/
-├── project-vaquero/
-│   ├── architecture.mdx
-│   ├── build-journal.mdx
-│   └── lessons-learned.mdx
-├── sled/
-│   └── campaign-hub/
-├── openshift/
-├── red-hat-ai/
-├── virtualization/
-├── automation/
-├── homelab/
-└── field-notes/
-```
-
-:::note[Editorial boundary]
-These are working technical notes developed for a Red Hat field role. They are
-not official Red Hat product documentation, support guidance, or a production
-architecture review. No customer, contact, or opportunity data belongs in this
-repository.
+:::note[Use with current product guidance]
+This is an independently authored technical resource for Mark Ivankovich's Red
+Hat SLED specialist role. It is not official Red Hat documentation, support
+guidance, or a production architecture approval. Validate supported designs,
+versions, subscriptions, and lifecycle details with current Red Hat
+documentation and your Red Hat account team.
 :::
-
