@@ -46,6 +46,10 @@ async function collectFiles(directory) {
 }
 
 const errors = [];
+const withdrawnLightwellPhrases = [
+  /Project Lightwell[\s\S]{0,240}field-developed buying motion/i,
+  /Project Lightwell[\s\S]{0,240}not a Red Hat product/i,
+];
 
 for (const file of requiredFiles) {
   try {
@@ -70,14 +74,16 @@ for (const file of files) {
     /qualification layer/i,
     /does not publish automatically/i,
     /CRM exports/i,
-    /field-developed buying motion/i,
-    /not a Red Hat product/i,
   ];
   for (const phrase of internalPhrases) {
     if (phrase.test(content)) {
       errors.push(`${name}: exposes internal campaign or outreach language.`);
       break;
     }
+  }
+
+  if (withdrawnLightwellPhrases.some((phrase) => phrase.test(content))) {
+    errors.push(`${name}: exposes the withdrawn Lightwell product-positioning claim.`);
   }
 
   if (

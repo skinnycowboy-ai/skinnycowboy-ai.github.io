@@ -29,6 +29,10 @@ const requiredRoutes = [
 ];
 
 const errors = [];
+const withdrawnLightwellPhrases = [
+  /Project Lightwell[\s\S]{0,240}field-developed buying motion/i,
+  /Project Lightwell[\s\S]{0,240}not a Red Hat product/i,
+];
 
 for (const route of requiredRoutes) {
   try {
@@ -55,6 +59,12 @@ const htmlFiles = await collectHtml(new URL(dist).pathname);
 
 for (const file of htmlFiles) {
   const html = await readFile(file, 'utf8');
+  const visibleText = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
+
+  if (withdrawnLightwellPhrases.some((phrase) => phrase.test(visibleText))) {
+    errors.push(`${file}: renders the withdrawn Lightwell product-positioning claim.`);
+  }
+
   const links = [...html.matchAll(/href="([^"]+)"/g)].map((match) => match[1]);
   for (const href of links) {
     if (!href.startsWith('/') || href.startsWith('//')) continue;
@@ -125,8 +135,6 @@ for (const phrase of [
   /outreach handoff/i,
   /qualification layer/i,
   /does not publish automatically/i,
-  /field-developed buying motion/i,
-  /not a Red Hat product/i,
 ]) {
   if (phrase.test(renderedContent)) {
     errors.push('Rendered site exposes internal campaign or outreach language.');
