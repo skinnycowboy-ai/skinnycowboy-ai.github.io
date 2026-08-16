@@ -30,6 +30,7 @@ const requiredFiles = [
   'field-notes/index.mdx',
   'field-notes/openshift-virtualization-storage-decisions.mdx',
   'field-notes/disconnected-openshift-content-flow.mdx',
+  'lightwell/index.mdx',
   'field-notes/project-lightwell-closed-loop.mdx',
 ];
 
@@ -69,6 +70,8 @@ for (const file of files) {
     /qualification layer/i,
     /does not publish automatically/i,
     /CRM exports/i,
+    /field-developed buying motion/i,
+    /not a Red Hat product/i,
   ];
   for (const phrase of internalPhrases) {
     if (phrase.test(content)) {
@@ -76,25 +79,44 @@ for (const file of files) {
       break;
     }
   }
+
+  if (
+    !name.endsWith('field-notes/project-lightwell-closed-loop.mdx') &&
+    content.includes('/field-notes/project-lightwell-closed-loop/')
+  ) {
+    errors.push(`${name}: links to the withdrawn Lightwell concept page.`);
+  }
 }
 
 const lightwell = await readFile(
-  new URL('field-notes/project-lightwell-closed-loop.mdx', docsRoot),
+  new URL('lightwell/index.mdx', docsRoot),
   'utf8',
 );
-if (!/field-developed buying motion/i.test(lightwell)) {
-  errors.push('Project Lightwell must remain labeled as a field-developed buying motion.');
+if (!/joint IBM and Red Hat/i.test(lightwell)) {
+  errors.push('Lightwell must remain identified as a joint IBM and Red Hat initiative.');
 }
-if (!/not a Red Hat product/i.test(lightwell)) {
-  errors.push('Project Lightwell must explicitly state that it is not a Red Hat product.');
+if (!/Lightwell Network is currently available/i.test(lightwell)) {
+  errors.push('Lightwell must retain the current Lightwell Network availability statement.');
+}
+if (!/Lightwell Clearinghouse Premier\s+is limited availability/i.test(lightwell)) {
+  errors.push('Lightwell must retain the Clearinghouse Premier availability boundary.');
+}
+if (!/third-party open source dependencies/i.test(lightwell)) {
+  errors.push('Lightwell must retain its third-party open source dependency scope.');
+}
+if (
+  !lightwell.includes('https://www.redhat.com/en/lightwell') ||
+  !lightwell.includes('https://www.ibm.com/products/lightwell')
+) {
+  errors.push('Lightwell must cite the official IBM and Red Hat offering pages.');
 }
 
 const solutions = await readFile(new URL('sled/solutions/index.mdx', docsRoot), 'utf8');
 if (!/public-sector/i.test(solutions) || !/What to validate/i.test(solutions)) {
   errors.push('SLED Solutions must remain customer-focused and validation-oriented.');
 }
-if (!/field-developed buying motion/i.test(solutions) || !/not a Red Hat product/i.test(solutions)) {
-  errors.push('SLED Solutions must retain the Project Lightwell naming boundary.');
+if (!/joint IBM and Red Hat/i.test(solutions) || !/Lightwell Network is currently available/i.test(solutions)) {
+  errors.push('SLED Solutions must retain the verified Lightwell ownership and availability boundary.');
 }
 
 const legacyRoute = await readFile(
@@ -105,12 +127,23 @@ if (!legacyRoute.includes('/sled/solutions/')) {
   errors.push('The legacy SLED route must direct readers to SLED Solutions.');
 }
 
+const legacyLightwell = await readFile(
+  new URL('field-notes/project-lightwell-closed-loop.mdx', docsRoot),
+  'utf8',
+);
+if (!legacyLightwell.includes('/lightwell/')) {
+  errors.push('The legacy Lightwell route must direct readers to the corrected overview.');
+}
+
 const config = await readFile(new URL('../astro.config.mjs', import.meta.url), 'utf8');
 if (/autogenerate/.test(config)) {
   errors.push('Public navigation must use explicit labels instead of directory-generated labels.');
 }
 if (!/slug:\s*'sled\/solutions'/.test(config)) {
   errors.push('Public navigation must include the SLED Solutions route.');
+}
+if (!/slug:\s*'lightwell'/.test(config)) {
+  errors.push('Public navigation must include the canonical Lightwell product route.');
 }
 
 if (errors.length > 0) {

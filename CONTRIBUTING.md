@@ -22,8 +22,10 @@ Every field note must include:
 - Explicit limitations
 - No confidential or customer-identifying information
 
-Project Lightwell must always be identified as a field-developed buying motion
-and must never be represented as a Red Hat product.
+Lightwell must be identified as a joint IBM and Red Hat commercial initiative.
+Content must distinguish the currently available Lightwell Network subscription
+from the limited-availability Lightwell Clearinghouse Premier offering and cite
+current official IBM or Red Hat sources for availability and catalog claims.
 
 ## Dependency changes
 

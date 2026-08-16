@@ -1,0 +1,131 @@
+---
+title: "Lightwell from IBM and Red Hat"
+description: "How the Lightwell subscription helps organizations remediate vulnerable third-party open source dependencies without forcing disruptive upgrades."
+---
+
+# Reduce open source risk without forcing disruptive upgrades
+
+Lightwell is a joint IBM and Red Hat initiative for securing the open source
+software supply chain. It extends Red Hat's enterprise open source maintenance
+model beyond the traditional Red Hat product footprint by providing validated
+security remediations and mitigations for eligible third-party open source
+dependencies.
+
+Lightwell combines AI-driven automation with human engineering expertise to
+identify, validate, and remediate vulnerabilities. It is delivered as an annual
+commercial subscription with two offering paths.
+
+:::note[Offering status reviewed August 16, 2026]
+**Lightwell Network is currently available.** **Lightwell Clearinghouse Premier
+is limited availability** for preselected customers in critical infrastructure.
+Confirm current eligibility, catalog coverage, subscription terms, and
+availability with Red Hat before planning an adoption.
+:::
+
+## The dependency-remediation problem
+
+The normal response to a vulnerable open source dependency is to upgrade. For
+long-lived enterprise and public-sector applications, that upgrade can introduce
+breaking changes, require lengthy regression or recertification work, conflict
+with release windows, or increase production risk.
+
+Lightwell is designed to help break that deadlock. IBM and Red Hat use an
+AI-powered remediation engine and human engineering review to backport fixes to
+specific software versions, validate the resulting artifacts, and make eligible
+remediations available through secured repositories.
+
+## The two offering paths
+
+| Offering | Current status | What it provides |
+| --- | --- | --- |
+| **Lightwell Network** | Available | Annual, consolidated access to signed libraries, remediations, and patched artifacts for eligible vulnerabilities as coverage expands. Customers consume the content through existing software-delivery workflows. |
+| **Lightwell Clearinghouse Premier** | Limited availability | All Network benefits plus member-specific package-version remediation, novel-vulnerability verification and disclosure handling, secured patch embargoes, anonymized access to other member requests, and Technical Account Manager services. |
+
+At commercial launch, Lightwell Network included more than 6,500 remediated,
+digitally signed, and certified application-layer dependencies across ecosystems
+including Java and Python. The catalog is active and expanding, so coverage for
+a specific package and version must be confirmed rather than assumed.
+
+## How a customer uses Lightwell
+
+1. **Inventory the dependency.** Identify the package, ecosystem, exact version,
+   vulnerability, application context, and reason a normal upgrade is difficult.
+2. **Confirm applicability.** Work with Red Hat to determine whether the package,
+   version, and remediation scenario are eligible and which Lightwell offering
+   applies.
+3. **Access trusted content.** Consume applicable remediations from Lightwell's
+   secured repositories alongside the public open source repositories already
+   used by the organization.
+4. **Integrate with existing builds.** Bring the signed binary, source, and
+   available compliance artifacts—including SBOM information—into the existing
+   software-delivery process.
+5. **Validate the application.** Run dependency, compatibility, security,
+   regression, certification, and operational tests required by the affected
+   service.
+6. **Promote through normal controls.** Use the organization's existing approval,
+   release, deployment, verification, and rollback process.
+
+Lightwell provides validated remediation content. The customer remains
+responsible for application-level testing, change approval, deployment, and
+production operations.
+
+## Why this matters for SLED
+
+State, local government, and education organizations often operate long-lived
+applications with fixed release windows, constrained engineering capacity,
+certification requirements, or dependencies that cannot be upgraded quickly.
+Lightwell creates a remediation path for eligible third-party open source
+packages when waiting or forcing a major upgrade would create unacceptable risk.
+
+### Education access program
+
+IBM and Red Hat announced no-charge Lightwell access for more than 185 leading
+U.S. research universities and 100 major U.S. NGOs and think tanks. Eligible
+institutions can access the growing library of validated fixes without providing
+IBM or Red Hat access to proprietary source code, data, or research. Eligibility
+and onboarding must be confirmed with Red Hat.
+
+### Government availability boundary
+
+Lightwell Network is the currently available subscription path. IBM and Red Hat
+have stated that expansion of Clearinghouse Premier beyond its initial financial
+services focus is planned for critical-infrastructure sectors including
+government, healthcare, and telecommunications. That future direction should not
+be represented as current general availability.
+
+## What Lightwell is—and is not
+
+- **It is** a joint IBM and Red Hat commercial offering for validated open source
+  vulnerability remediation.
+- **It is** designed to integrate remediated artifacts into existing build and
+  software-delivery workflows.
+- **It is not** an autonomous agent that receives permission to change a
+  customer's production systems.
+- **It does not** replace dependency inventory, SBOM management, application
+  testing, release governance, or rollback planning.
+- **It should not** be described as a solution assembled from OpenShift AI,
+  Ansible Automation Platform, Advanced Cluster Security, or other Red Hat
+  products unless a documented customer architecture or official integration
+  specifically establishes that relationship.
+
+## A focused evaluation
+
+Choose one to three vulnerable dependencies where an upgrade is blocked by
+compatibility, certification, release, audit, or production constraints. Record:
+
+- Package ecosystem, name, version, and vulnerability
+- Applications and services that consume the dependency
+- Why the normal upgrade path is unsafe or impractical
+- Required signed artifacts, source, SBOM, and compliance evidence
+- Existing repository, build, test, approval, and deployment controls
+- Regression, security, certification, rollback, and acceptance criteria
+
+Then confirm Lightwell catalog coverage and offering eligibility with Red Hat
+before designing a nonproduction integration test.
+
+## Official IBM and Red Hat sources
+
+- [Red Hat: Lightwell offering details](https://www.redhat.com/en/lightwell)
+- [IBM: Lightwell product overview](https://www.ibm.com/products/lightwell)
+- [IBM and Red Hat commercial launch of Lightwell](https://www.redhat.com/en/about/press-releases/ibm-and-red-hat-expand-lightwell-new-offerings-build-trust-infrastructure-ai-era-open-source)
+- [No-charge Lightwell access for eligible universities, NGOs, and think tanks](https://www.redhat.com/en/about/press-releases/ibm-and-red-hat-offer-lightwell-no-charge-universities-ngos-and-think-tanks)

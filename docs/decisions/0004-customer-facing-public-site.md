@@ -2,6 +2,7 @@
 
 - Status: Accepted
 - Date: 2026-08-16
+- Product-classification amendment: ADR 0005
 
 ## Context
 
@@ -21,8 +22,8 @@ The public site will:
 - keep Red Hat product guides and long-form field notes as durable technical
   resources;
 - present Project Vaquero as bounded lab evidence, not production assurance;
-- present Project Lightwell as a field-developed buying motion and demonstration
-  concept, not a Red Hat product;
+- present Lightwell as the joint IBM and Red Hat commercial offering documented
+  in current official sources;
 - retain a minimal compatibility page at the old campaign-hub URL that directs
   readers to SLED Solutions; and
 - exclude customer records, contacts, account plans, pricing, opportunity data,

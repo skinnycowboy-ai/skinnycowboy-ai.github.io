@@ -43,12 +43,13 @@ export default defineConfig({
           ],
         },
         {
-          label: 'Red Hat platform guides',
+          label: 'Product & offering guides',
           items: [
             { label: 'Red Hat OpenShift', slug: 'openshift' },
             { label: 'Red Hat OpenShift AI', slug: 'red-hat-ai' },
             { label: 'OpenShift Virtualization', slug: 'virtualization' },
             { label: 'Ansible Automation Platform', slug: 'automation' },
+            { label: 'Lightwell from IBM and Red Hat', slug: 'lightwell' },
           ],
         },
         {
@@ -58,7 +59,6 @@ export default defineConfig({
             { label: 'Vaquero architecture', slug: 'project-vaquero/architecture' },
             { label: 'Vaquero build journal', slug: 'project-vaquero/build-journal' },
             { label: 'Vaquero lessons learned', slug: 'project-vaquero/lessons-learned' },
-            { label: 'Project Lightwell', slug: 'field-notes/project-lightwell-closed-loop' },
           ],
         },
         {
