@@ -17,8 +17,9 @@ import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
 ## Technical library
 
-Choose the Red Hat product area you are working on. These are durable technical
-collections, not campaign landing pages.
+Choose the Red Hat product area you are working on. These durable technical
+collections are the canonical source for architecture notes; campaign paths link
+here instead of copying product claims.
 
 <CardGrid>
   <LinkCard title="Red Hat OpenShift" href="/openshift/" description="Platform architecture, lifecycle, application delivery, multicluster management, and disconnected operations." />
@@ -33,9 +34,12 @@ collections, not campaign landing pages.
 
 The [SLED library](/sled/) provides a second route into the same knowledge by
 education or government context, modernization problem, operating constraint,
-security requirement, application-platform objective, or AI use case.
+security requirement, application-platform objective, or AI use case. The
+[SLED Campaign Hub](/sled/campaign-hub/) connects those contexts to discovery,
+the smallest useful technical proof, evidence, and a next decision.
 
 <CardGrid>
+  <LinkCard title="SLED Campaign Hub" href="/sled/campaign-hub/" description="Buying motions for virtualization, application platforms, disconnected operations, private AI, and Project Lightwell." />
   <LinkCard title="Education" href="/sled/education/" description="Research platforms, shared services, campus automation, and technical skills." />
   <LinkCard title="State & local government" href="/sled/state-local-government/" description="Constituent services, shared platforms, resilience, and constrained teams." />
   <LinkCard title="Modernization" href="/sled/modernization/" description="VM migration, application assessment, platform consolidation, and phased adoption." />
@@ -57,6 +61,7 @@ src/content/docs/
 │   ├── build-journal.mdx
 │   └── lessons-learned.mdx
 ├── sled/
+│   └── campaign-hub/
 ├── openshift/
 ├── red-hat-ai/
 ├── virtualization/
@@ -71,3 +76,4 @@ not official Red Hat product documentation, support guidance, or a production
 architecture review. No customer, contact, or opportunity data belongs in this
 repository.
 :::
+

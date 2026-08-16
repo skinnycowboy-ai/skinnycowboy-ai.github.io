@@ -12,6 +12,7 @@ const requiredFiles = [
   'project-vaquero/build-journal.mdx',
   'project-vaquero/lessons-learned.mdx',
   'sled/index.mdx',
+  'sled/campaign-hub/index.mdx',
   'sled/education/index.mdx',
   'sled/state-local-government/index.mdx',
   'sled/modernization/index.mdx',
@@ -72,9 +73,24 @@ if (!/not a Red Hat product/i.test(lightwell)) {
   errors.push('Project Lightwell must explicitly state that it is not a Red Hat product.');
 }
 
+const campaignHub = await readFile(
+  new URL('sled/campaign-hub/index.mdx', docsRoot),
+  'utf8',
+);
+if (!/field-developed buying motion/i.test(campaignHub)) {
+  errors.push('The SLED Campaign Hub must retain the Project Lightwell buying-motion boundary.');
+}
+if (!/not a Red Hat product/i.test(campaignHub)) {
+  errors.push('The SLED Campaign Hub must retain the Project Lightwell product-name boundary.');
+}
+if (!/does not publish automatically to external\s+networks/i.test(campaignHub)) {
+  errors.push('The SLED Campaign Hub must retain the human-reviewed outreach boundary.');
+}
+
 if (errors.length > 0) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
 
 console.log(`Validated ${files.length} content files and all required editorial boundaries.`);
+
