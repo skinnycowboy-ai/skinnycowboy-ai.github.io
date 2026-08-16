@@ -16,6 +16,7 @@ const requiredRoutes = [
   'project-vaquero/build-journal/index.html',
   'project-vaquero/lessons-learned/index.html',
   'sled/index.html',
+  'sled/campaign-hub/index.html',
   'sled/security-compliance/index.html',
   'field-notes/index.html',
   'field-notes/openshift-virtualization-storage-decisions/index.html',
@@ -88,9 +89,24 @@ if (!/not a Red Hat product/i.test(lightwell)) {
   errors.push('Rendered Project Lightwell page lost the product-name boundary.');
 }
 
+const campaignHub = await readFile(
+  new URL('sled/campaign-hub/index.html', dist),
+  'utf8',
+);
+if (!/field-developed buying motion/i.test(campaignHub)) {
+  errors.push('Rendered SLED Campaign Hub lost the Project Lightwell buying-motion boundary.');
+}
+if (!/not a Red Hat product/i.test(campaignHub)) {
+  errors.push('Rendered SLED Campaign Hub lost the Project Lightwell product-name boundary.');
+}
+if (!/does not publish automatically to external\s+networks/i.test(campaignHub)) {
+  errors.push('Rendered SLED Campaign Hub lost the human-reviewed outreach boundary.');
+}
+
 if (errors.length > 0) {
   console.error([...new Set(errors)].join('\n'));
   process.exit(1);
 }
 
 console.log(`Validated ${htmlFiles.length} rendered pages, required artifacts, and internal links.`);
+
